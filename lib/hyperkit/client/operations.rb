@@ -91,7 +91,7 @@ module Hyperkit
       # @example Wait, but time out if the operation is not complete after 30 seconds
       #   op = Hyperkit.copy_container("test1", "test2", sync: false)
       #   Hyperkit.wait_for_operation(op.id, timeout: 30)
-      def wait_for_operation(uuid, timeout=nil)
+      def wait_for_operation(uuid, timeout=9999999)
         url = File.join(operation_path(uuid), "wait")
         url += "?timeout=#{timeout}" if timeout.to_i > 0
 
